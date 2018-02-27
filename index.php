@@ -1,49 +1,65 @@
-<?php
-  $mysqli = new mysqli("localhost", "root", "password", "taiwan_db");
+<!DOCTYPE html>
+<html>
+<head>
+  <title>AUS Postcode</title>
+</head>
+<body>
+  <form action="" method="get">
+    <input type="text" placeholder="postcode" name="postcode" />
+    <input type="number" placeholder="distance" name="radius" />
+    <button type="submit">Search</button>
+  </form>
 
-  if (mysqli_connect_errno()) {
-    echo "Connect failed: %s\n", mysqli_connect_error();
-  }
+  <?php
+    if (isset($_GET['radius']) && isset($_GET['postcode'])) {
+      $dbname = "db_name";
+      $mysqli = new mysqli("localhost", "username", "password", $dbname);
 
-  $radius = 40; // in km or $_POST['distance']
+      if (mysqli_connect_errno()) {
+        echo "Connect failed: %s\n", mysqli_connect_error();
+      }
 
-  // if (!is_numeric($radius)) return false;
-  
-  $postcode = 200; // or other postcode
+      $radius = trim($_GET['radius']); // in km or $_POST['distance']
 
-  // select the target
-  if (!$result = $mysqli->query("SELECT * FROM postcode_db WHERE postcode = " . trim($postcode) . " LIMIT 1")) {
-    echo "Target not found.";
-    return false;
-  } else {
-    while ($row = $result->fetch_assoc()) {
-      $target = $row;
+      // if (!is_numeric($radius)) return false;
+      
+      $postcode = trim($_GET['postcode']); // or other postcode
+
+      // select the target
+      if (!$result = $mysqli->query("SELECT * FROM postcode_db WHERE postcode = " . $postcode . " LIMIT 1")) {
+        echo "Target not found.";
+        return false;
+      } else {
+        while ($row = $result->fetch_assoc()) {
+          $target = $row;
+        }
+        $result->free();
+      }
+      
+      // get the results from target radius
+      $results = $mysqli->query("SELECT
+        *,( 6371 * acos( cos( radians(" . $target['lat'] . ") ) * cos( radians( `lat` ) ) * cos( radians( `lon` ) - radians(" . $target['lon'] . ") ) + sin( radians(" . $target['lat'] . ") ) * sin( radians( `lat` ) ) ) ) AS distance
+        FROM `postcode_db`
+        HAVING distance <= " . $radius . "
+        ORDER BY distance ASC");
+
+      if (!$results) {
+        echo "No suburb found near " . $target->suburb . " within " . $radius . "km";
+        return false;
+      }
+
+      $html = "";
+
+      while ($row = $results->fetch_assoc()) {
+        $html .= "Post Code: " . $row['postcode'] . ", Suburb: " . $row['suburb'] . "<br>"; 
+      }
+
+      echo $html;
+
+      $results->free();
+      $mysqli->close();
     }
-    $result->free();
-  }
-  
-  // get the results from target radius
-  $results = $mysqli->query("SELECT
-    *,
-    ( 6371 * acos( cos( radians(" . $target['lat'] . ") ) * cos( radians( `lat` ) ) * cos( radians( `lon` ) - radians(" . $target['lon'] . ") ) + sin( radians(" . $target['lat'] . ") ) * sin( radians( `lat` ) ) ) ) AS distance
-    FROM `postcode_db`
-    HAVING distance <= " . $radius . "
-    ORDER BY distance ASC");
 
-  if (!$results) {
-    echo "No suburb found near " . $target->suburb . " within " . $radius . "km";
-    return false;
-  }
-
-  $html = "";
-
-  while ($row = $results->fetch_assoc()) {
-    $html .= "Post Code: " . $row['postcode'] . ", Suburb: " . $row['suburb'] . "<br>"; 
-  }
-
-  echo $html;
-
-  $results->free();
-  $mysqli->close();
-
-?>
+  ?>
+</body>
+</html>
