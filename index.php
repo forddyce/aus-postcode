@@ -6,7 +6,7 @@
 <body>
   <form action="" method="get">
     <input type="text" placeholder="postcode" name="postcode" />
-    <input type="number" placeholder="distance" name="radius" />
+    <input type="number" placeholder="distance in km" name="radius" />
     <button type="submit">Search</button>
   </form>
 
