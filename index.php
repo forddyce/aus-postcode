@@ -4,6 +4,8 @@
   <title>AUS Postcode</title>
 </head>
 <body>
+  <h1>Australia Suburb Search</h1>
+  <br>
   <form action="" method="get">
     <input type="text" placeholder="postcode" name="postcode" />
     <input type="number" placeholder="distance in km" name="radius" />
