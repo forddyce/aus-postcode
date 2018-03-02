@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "indotaiwan101",
+  "private_key_id": "98e18b19ace34b3ba02a8f35564eb03f85d450e3",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQC8ZQ3uvfNEhtn6\nPTgyUNBeqHjfuXW0/G6QMYFgrnaEEkL441sK00NeR9HVgM+kGOGecQ0HAV5pPw40\n+ALVYuW9mD+tLioalmpvA1LG9eG8Aw25ZJqXLvnn16gaKqXJDqMJGG9dt7k1fVAH\npLPAP/IA6uOuP+RrmEl2mMOigMcVbRJo12oWLlF+un8FRgwWdX35uzqHSFMwI0Tz\n9ddZAsdyvVMAcuQXpRbCy69SnAqWbwbrC4I8CUfLwweP1gVxDnuLDVeu1en1RJhM\nCofcLuQhtE0pLDvDglGsK+RN3sQVK8Xj3qrXSH0iBnEGXYVUWoBPvOz5OjybqbYM\njas+sVQ3AgMBAAECggEAUuK89gBBQrF3voZnro9qlXLWt0uPs2BqPmthagln4CRu\nrbTNjd4z4guEEMR61k4SGZTQb/gUswZIeFpzWLGJtVgCD+3jHU53Jj9WkG2GcqL/\nS0UtVH2Y+n0hmt2Pkf0sEqja+mcGB7gJ2UsHwHoBvZCaOkQm+YWHMLP2Qo0Yyd4x\nNcWVK88SocCMo6ZtHBNeiZDF3OpPJzWEjATcZxjRam9jSq60dbbZPkO0GU0WOcjr\n0Clm6SrdE0ox4zVcc3ol8cmrfNFDpv02gaa7/GOjjGBVhm3uZItecU2fVh7AErP9\nd/pJb02a7Rp83PNTwKjogriLjHZplwmArXkQfoRdNQKBgQDgTH6Gutm1WNgWj+qx\nsQw6LyUHV5v/rz0aYH5wV4GhpH4da+iT3y5z8jdnaPw8w2hsJCTQuc39/TDtwwEk\nprmuWNXERFOVgSBnh30AWQ55WUWwhU9E60J4LTWRoomE+0UbJaTMgQmb+UQYbK0D\nxZ0ocrMjElb9QuvBgs/l2eN8vQKBgQDXBX2/er2eAnUUEgOYWKYAhgTvGo7za2gx\n7DejIcIiWqU1aTH3SgbkC2eUHODmwIRi5QGl52DPt2m7mpgtqrR23JGsTF9+wNp0\nPv2SNbRX6C/ypzuiK4u2a27n5wSyzpevqqD4uSJ6utbCGbQNH84VDRWGFBkAkjv8\nCCJkYIM2AwKBgAgjfmvRF9k2shCPhEqSTAlIcKWFjkmGyEbOvYfCBRgiadkTc0r6\nTCs03MHJ0205Ae76mMNiGpFewInAC6iSzCYBXzBR8l54Yv6esfBzSs0oahjvnWK4\nzp6htVHlfevvWiCUCxjIjdq0/r2MI/MBFqTDFLDvF2z1IqzQ3E5Qy6pZAoGAQ+ll\nFQQUPYKzLbqezhA5pfKuPkKaIcGrsBDWZby0zxroER1/fYYw9PexKDOSyO7HIWEJ\nCzgv+IsKZwllxQ6kXuI9VDju9F6+4HZAqlwx8I3SDwbIq+irANuftLjfYAYmHIJ8\nwvHeNPsr9zQdDQQdl8KBKM7SMr79GRYMnr1o07cCgYB+Sb23xI0Z2p/nf4ub6vcT\nqDqiBFht3FTc8qlHZYtMZ9JQHMHk6xk7jQZ9vTZH0bUbFZdUrlZ3GZ+YQUIA9ILJ\n5T7xjz2CqncrMWO9P0hCL3TyzMuyypaGk6MzB19e2BsDPrtbCrGaurpxKlMsx8vX\nTiQpap2TLJTCfy+Gbn5mww==\n-----END PRIVATE KEY-----\n",
+  "client_email": "speechapi@indotaiwan101.iam.gserviceaccount.com",
+  "client_id": "109728533545733447026",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://accounts.google.com/o/oauth2/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/speechapi%40indotaiwan101.iam.gserviceaccount.com"
+}

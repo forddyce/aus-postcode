@@ -1,6 +1,7 @@
 <?php
 
-include 'GoogleSpeechToText.php';
+require __DIR__ . '/vendor/autoload.php';
+use Google\Cloud\Speech\SpeechClient;
 
 try {
     // Undefined | Multiple Files | $_FILES Corruption Attack
@@ -43,10 +44,25 @@ try {
     $file = $_FILES['upfile']['tmp_name'];
 } catch (RuntimeException $e) {
     echo $e->getMessage();
+    return false;
 }
 
-$apiKey = '';
-$speech = new GoogleSpeechToText($apiKey);
-$bitRate = 44100; // The bit rate of the file.
-$result = $speech->process($file, $bitRate, 'en-US');
-var_dump($result);
+// $apiKey = 'AIzaSyA54BrVHA2RVCcgDfsFEHqAs5qVRzkaJaY';
+
+try {
+    $speech = new SpeechClient([
+        'keyFilePath' => __DIR__ . '/indotaiwan101-98e18b19ace3.json',
+        'languageCode' => 'en-US'
+    ]);
+
+    $results = $speech->recognize(
+        file_get_contents($file), [
+            'encoding' => 'WAV',
+            'sampleRateHertz' => 44100,
+        ]
+    );
+
+    foreach ($results as $result) {
+        echo $result->topAlternative()['transcript'] . PHP_EOL;
+    }
+} catch (Exception $e) { var_dump($e->getMessage()); }
