@@ -11,5 +11,7 @@
         <input type="file" name="upfile"><br><br>
         <button type="Submit">Upload</button>
     </form>
+
+    <p>Less than 1 minute, MONO channel, .wav only.</p>
 </body>
 </html>
