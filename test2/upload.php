@@ -51,18 +51,15 @@ try {
 
 try {
     $speech = new SpeechClient([
-        'keyFilePath' => __DIR__ . '/indotaiwan101-98e18b19ace3.json',
+        'keyFilePath' => __DIR__ . '/key.json',
         'languageCode' => 'en-US'
     ]);
 
     $results = $speech->recognize(
-        file_get_contents($file), [
-            'encoding' => 'WAV',
-            'sampleRateHertz' => 44100,
-        ]
+        file_get_contents($file)
     );
-
-    foreach ($results as $result) {
-        echo $result->topAlternative()['transcript'] . PHP_EOL;
-    }
 } catch (Exception $e) { var_dump($e->getMessage()); }
+
+foreach ($results as $result) {
+    echo $result->topAlternative()['transcript'] . PHP_EOL;
+}
